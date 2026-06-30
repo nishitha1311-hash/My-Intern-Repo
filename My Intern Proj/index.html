@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SubTrack - Subscription Management System</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="logo">Sub<span>Track</span></div>
+
+    <nav>
+      <a href="#" class="nav-link active">⌂ <span>Dashboard</span></a>
+      <a href="#subscriptions" class="nav-link">▣ <span>Subscriptions</span></a>
+      <a href="#plans" class="nav-link">◈ <span>Plans</span></a>
+      <a href="#customers" class="nav-link">♙ <span>Customers</span></a>
+      <a href="#" class="nav-link">▤ <span>Payments</span></a>
+      <a href="#" class="nav-link">⚙ <span>Settings</span></a>
+    </nav>
+
+    <div class="help-box">
+      <h4>Need Help?</h4>
+      <p>Contact our support team for help.</p>
+      <button>Get Support</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+
+    <header class="topbar">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Manage all your subscriptions in one place.</p>
+      </div>
+
+      <div class="topbar-right">
+        <div class="notification">🔔<span>2</span></div>
+        <div class="admin-avatar">N</div>
+        <div class="admin-info">
+          <strong>Nishitha</strong>
+          <span>Administrator</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon purple">◈</div>
+        <div>
+          <p>Total Subscriptions</p>
+          <h2 id="totalSubscriptions">0</h2>
+          <span class="positive">↑ 12% this month</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon green">✓</div>
+        <div>
+          <p>Active Subscriptions</p>
+          <h2 id="activeSubscriptions">0</h2>
+          <span class="positive">↑ 8% this month</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon orange">₹</div>
+        <div>
+          <p>Monthly Revenue</p>
+          <h2 id="monthlyRevenue">₹0</h2>
+          <span class="positive">↑ 15% this month</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon red">!</div>
+        <div>
+          <p>Expired Plans</p>
+          <h2 id="expiredSubscriptions">0</h2>
+          <span class="negative">Needs attention</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-grid">
+
+      <div class="form-card">
+        <div class="section-heading">
+          <div>
+            <h2>Add New Subscription</h2>
+            <p>Create a subscription for a customer.</p>
+          </div>
+        </div>
+
+        <form id="subscriptionForm">
+          <div class="form-row">
+            <div class="input-group">
+              <label for="customerName">Customer Name</label>
+              <input type="text" id="customerName" placeholder="Enter customer name" required>
+            </div>
+
+            <div class="input-group">
+              <label for="customerEmail">Email Address</label>
+              <input type="email" id="customerEmail" placeholder="Enter email address" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="planSelect">Subscription Plan</label>
+              <select id="planSelect" required>
+                <option value="">Select a plan</option>
+                <option value="Basic">Basic - ₹199/month</option>
+                <option value="Standard">Standard - ₹499/month</option>
+                <option value="Premium">Premium - ₹999/month</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="renewalDate">Renewal Date</label>
+              <input type="date" id="renewalDate" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="paymentStatus">Payment Status</label>
+              <select id="paymentStatus" required>
+                <option value="Paid">Paid</option>
+                <option value="Pending">Pending</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="subscriptionStatus">Subscription Status</label>
+              <select id="subscriptionStatus" required>
+                <option value="Active">Active</option>
+                <option value="Expired">Expired</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="add-button">+ Add Subscription</button>
+        </form>
+      </div>
+
+      <div class="plans-card" id="plans">
+        <div class="section-heading">
+          <div>
+            <h2>Subscription Plans</h2>
+            <p>Available plans for customers.</p>
+          </div>
+        </div>
+
+        <div class="plan">
+          <div class="plan-name">
+            <div class="plan-icon basic">B</div>
+            <div>
+              <h3>Basic Plan</h3>
+              <p>For individual users</p>
+            </div>
+          </div>
+          <div class="plan-price">₹199<span>/month</span></div>
+        </div>
+
+        <div class="plan">
+          <div class="plan-name">
+            <div class="plan-icon standard">S</div>
+            <div>
+              <h3>Standard Plan</h3>
+              <p>For small teams</p>
+            </div>
+          </div>
+          <div class="plan-price">₹499<span>/month</span></div>
+        </div>
+
+        <div class="plan">
+          <div class="plan-name">
+            <div class="plan-icon premium">P</div>
+            <div>
+              <h3>Premium Plan</h3>
+              <p>For businesses</p>
+            </div>
+          </div>
+          <div class="plan-price">₹999<span>/month</span></div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="table-card" id="subscriptions">
+      <div class="table-top">
+        <div>
+          <h2>Recent Subscriptions</h2>
+          <p>View and manage customer subscriptions.</p>
+        </div>
+
+        <div class="search-box">
+          <span>⌕</span>
+          <input type="text" id="searchInput" placeholder="Search customer...">
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Plan</th>
+              <th>Renewal Date</th>
+              <th>Payment</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody id="subscriptionTableBody">
+            <tr>
+              <td>
+                <div class="customer-cell">
+                  <div class="table-avatar purple-avatar">R</div>
+                  <div>
+                    <strong>Rahul Kumar</strong>
+                    <span>rahul@gmail.com</span>
+                  </div>
+                </div>
+              </td>
+              <td>Premium</td>
+              <td>30 Jun 2026</td>
+              <td><span class="badge paid">Paid</span></td>
+              <td><span class="badge active-status">Active</span></td>
+              <td><button class="cancel-btn">Cancel</button></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="customer-cell">
+                  <div class="table-avatar pink-avatar">P</div>
+                  <div>
+                    <strong>Priya Sharma</strong>
+                    <span>priya@gmail.com</span>
+                  </div>
+                </div>
+              </td>
+              <td>Standard</td>
+              <td>05 Jul 2026</td>
+              <td><span class="badge paid">Paid</span></td>
+              <td><span class="badge active-status">Active</span></td>
+              <td><button class="cancel-btn">Cancel</button></td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="customer-cell">
+                  <div class="table-avatar orange-avatar">V</div>
+                  <div>
+                    <strong>Vijay Kumar</strong>
+                    <span>vijay@gmail.com</span>
+                  </div>
+                </div>
+              </td>
+              <td>Basic</td>
+              <td>12 Jun 2026</td>
+              <td><span class="badge pending">Pending</span></td>
+              <td><span class="badge expired-status">Expired</span></td>
+              <td><button class="cancel-btn">Cancel</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
